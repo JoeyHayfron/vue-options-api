@@ -1,10 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div>
+    <div v-if="GStore.flashMessage">{{ GStore.flashMessage }}</div>
+    <nav>
+      <router-link to="/">Events</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+  </div>
+
   <router-view />
 </template>
+
+<script>
+export default {
+  inject: ["GStore"],
+};
+</script>
 
 <style>
 #app {
@@ -26,5 +36,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+h4 {
+  font-size: 20px;
 }
 </style>
